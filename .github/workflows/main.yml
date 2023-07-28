@@ -1,4 +1,4 @@
-name: Run Kubra CLI and Commit JSON Output
+name: Download Consumer Energy Outages and Commit JSON Output
 
 on:
   schedule:
