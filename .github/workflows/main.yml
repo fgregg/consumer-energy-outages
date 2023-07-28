@@ -16,7 +16,7 @@ jobs:
 
       - name: Run Kubra and Create JSON Output
         run: |
-          output_file="dte_$(date +'%Y%m%d%H%M%S').json"
+          output_file="ce_$(date +'%Y%m%d%H%M%S').json"
           wget -O "$output_file" "https://www.consumersenergy.com/arcgispublic/rest/services/CEOutageMap/MapServer/2/query?where=1%3D1&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Foot&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=3&outSR=4326&havingClause=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&historicMoment=&returnDistinctValues=false&resultOffset=&resultRecordCount=&returnExtentOnly=false&datumTransformation=&parameterValues=&rangeValues=&quantizationParameters=&featureEncoding=esriDefault&f=geojson"
 
       - name: Commit changes
