@@ -21,7 +21,10 @@ for filename in sorted(Path(base_dir).glob("ce_*.json")):
     )
 
     with open(filename) as outage_file:
-        outages = json.load(outage_file)
+        try:
+            outages = json.load(outage_file)
+        except json.decoder.JSONDecodeError:
+            continue
 
     row["outages"] = sum(1 for outage in outages['features'])
     row["affected customers"] = sum(
