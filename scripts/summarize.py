@@ -21,10 +21,7 @@ for filename in sorted(Path(base_dir).glob("ce_*.json")):
     )
 
     with open(filename) as outage_file:
-        try:
-            outages = json.load(outage_file)
-        except:
-            breakpoint()
+        outages = json.load(outage_file)
 
     row["outages"] = sum(1 for outage in outages['features'])
     row["affected customers"] = sum(
