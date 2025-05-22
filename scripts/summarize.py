@@ -26,10 +26,8 @@ for filename in sorted(Path(base_dir).glob("ce_*.json")):
         except json.decoder.JSONDecodeError:
             continue
 
-    row["outages"] = sum(1 for outage in outages["features"] if "features" in outages)
+    row["outages"] = sum(1 for outage in outages.get("features", ()))
     row["affected customers"] = sum(
-        outage["properties"]["CUSTOMER_COUNT"]
-        for outage in outages["features"]
-        if "features" in outages
+        outage["properties"]["CUSTOMER_COUNT"] for outage in outages.get("features", ())
     )
     writer.writerow(row)
